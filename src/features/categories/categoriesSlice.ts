@@ -35,7 +35,7 @@ export const fetchCategories = createAsyncThunk(
       return response.data;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to fetch categories");
+      return rejectWithValue(error.message || "Erro ao buscar categorias");
     }
   },
 );
@@ -48,7 +48,7 @@ export const fetchCategoryById = createAsyncThunk(
       return response.data;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to fetch category");
+      return rejectWithValue(error.message || "Erro ao buscar categoria");
     }
   },
 );
@@ -61,7 +61,7 @@ export const createCategory = createAsyncThunk(
       return response.data;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to create category");
+      return rejectWithValue(error.message || "Erro ao criar categoria");
     }
   },
 );
@@ -77,7 +77,7 @@ export const updateCategory = createAsyncThunk(
       return response.data;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to update category");
+      return rejectWithValue(error.message || "Erro ao atualizar categoria");
     }
   },
 );
@@ -94,7 +94,7 @@ export const partialUpdateCategory = createAsyncThunk(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       return rejectWithValue(
-        error.message || "Failed to partially update category",
+        error.message || "Erro ao atualizar parcialmente a categoria",
       );
     }
   },
@@ -108,7 +108,7 @@ export const deleteCategory = createAsyncThunk(
       return id; // Retorna o ID para remover do estado
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.message || "Failed to delete category");
+      return rejectWithValue(error.message || "Erro ao deletar categoria");
     }
   },
 );
@@ -168,7 +168,7 @@ const categoriesSlice = createSlice({
       .addCase(createCategory.fulfilled, (state, action) => {
         state.loading = false;
         state.categories.push(action.payload);
-        state.success = "Category created successfully";
+        state.success = "Categoria criada com sucesso";
       })
       .addCase(createCategory.rejected, (state, action) => {
         state.loading = false;
@@ -190,7 +190,7 @@ const categoriesSlice = createSlice({
         if (index !== -1) {
           state.categories[index] = action.payload;
         }
-        state.success = "Category updated successfully";
+        state.success = "Categoria atualizada com sucesso";
       })
       .addCase(updateCategory.rejected, (state, action) => {
         state.loading = false;
@@ -215,7 +215,7 @@ const categoriesSlice = createSlice({
             ...action.payload,
           };
         }
-        state.success = "Category partially updated successfully";
+        state.success = "Categoria atualizada parcialmente com sucesso";
       })
       .addCase(partialUpdateCategory.rejected, (state, action) => {
         state.loading = false;
@@ -234,7 +234,7 @@ const categoriesSlice = createSlice({
         state.categories = state.categories.filter(
           (cat) => cat.id !== action.payload,
         );
-        state.success = "Category deleted successfully";
+        state.success = "Categoria deletada com sucesso";
       })
       .addCase(deleteCategory.rejected, (state, action) => {
         state.loading = false;
