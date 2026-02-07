@@ -3,17 +3,17 @@
  * Combina todos os reducers das features
  */
 import { configureStore } from "@reduxjs/toolkit";
-// import peopleReducer from "../features/people/peopleSlice";
+import peopleReducer from "../features/people/peopleSlice";
 import categoriesReducer from "../features/categories/categoriesSlice";
-// import transactionsReducer from "../features/transactions/transactionsSlice";
-// import reportsReducer from "../features/reports/reportsSlice";
+import transactionsReducer from "../features/transactions/transactionsSlice";
+import reportsReducer from "../features/reports/reportsSlice";
 
 export const store = configureStore({
   reducer: {
-    // people: peopleReducer,
+    people: peopleReducer,
     categories: categoriesReducer,
-    // transactions: transactionsReducer,
-    // reports: reportsReducer,
+    transactions: transactionsReducer,
+    reports: reportsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
