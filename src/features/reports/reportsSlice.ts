@@ -7,14 +7,14 @@ import { CategoryReport, GeneralReport, PersonReport } from "@/types/Report";
 import { RootState } from "@/app/store";
 
 interface ReportsState {
-  generalReports: GeneralReport | null;
+  generalReport: GeneralReport | null;
   categoryReports: CategoryReport[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: ReportsState = {
-  generalReports: null,
+  generalReport: null,
   categoryReports: [],
   loading: false,
   error: null,
@@ -148,7 +148,7 @@ const reportsSlice = createSlice({
       })
       .addCase(calculateGeneralReport.fulfilled, (state, action) => {
         state.loading = false;
-        state.generalReports = action.payload;
+        state.generalReport = action.payload;
       })
       .addCase(calculateGeneralReport.rejected, (state, action) => {
         state.loading = false;
