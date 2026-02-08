@@ -40,7 +40,7 @@ export const personService = {
   /**
    * Atualizar pessoa completamente (PUT)
    */
-  update: (id: string, data: UpdatePersonDTO) => {
+  update: (id: string, data: CreatePersonDTO) => {
     const response = api.put<Person>(`/People/${id}`, data);
     return response;
   },

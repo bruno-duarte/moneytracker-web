@@ -6,7 +6,7 @@
 export interface Person {
   id: string;
   name: string;
-  birthDate: number; // ISO 8601 (YYYY-MM-DD)
+  birthDate: string; // ISO 8601 (YYYY-MM-DD)
   createdAt: string;
   updatedAt: string;
 }
@@ -16,7 +16,7 @@ export interface Person {
  */
 export interface CreatePersonDTO {
   name: string;
-  birthDate: number;
+  birthDate: string;
 }
 
 /**

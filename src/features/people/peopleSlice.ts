@@ -65,7 +65,7 @@ export const createPerson = createAsyncThunk(
 export const updatePerson = createAsyncThunk(
   "people/update",
   async (
-    { id, data }: { id: string; data: UpdatePersonDTO },
+    { id, data }: { id: string; data: CreatePersonDTO },
     { rejectWithValue },
   ) => {
     try {

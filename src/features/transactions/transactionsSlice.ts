@@ -130,6 +130,12 @@ const transactionsSlice = createSlice({
     ) => {
       state.selectedTransaction = action.payload;
     },
+    // Atualizar transações quando uma pessoa é deletada
+    removeTransactionsByPersonId: (state, action: PayloadAction<string>) => {
+      state.transactions = state.transactions.filter(
+        (transaction) => transaction.personId !== action.payload,
+      );
+    },
   },
   extraReducers: (builder) => {
     // Fetch all transactions
@@ -247,6 +253,10 @@ const transactionsSlice = createSlice({
   },
 });
 
-export const { clearError, clearSuccess, setSelectedTransaction } =
-  transactionsSlice.actions;
+export const {
+  clearError,
+  clearSuccess,
+  setSelectedTransaction,
+  removeTransactionsByPersonId,
+} = transactionsSlice.actions;
 export default transactionsSlice.reducer;
